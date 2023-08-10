@@ -14,7 +14,7 @@ import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxFramesCollection;
 import flixel.graphics.frames.FlxFrame;
 
-#if （desktop || android)
+#if android
 import sys.FileSystem;
 import sys.io.File;
 #else
