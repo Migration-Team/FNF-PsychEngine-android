@@ -55,7 +55,7 @@ class Mods
 	{
 		var list:Array<String> = [];
 		#if MODS_ALLOWED
-		var modsFolder:String = Paths.mods();
+		var modsFolder:String = SUtil.getPaths() + Paths.mods();
 		if(FileSystem.exists(modsFolder)) {
 			for (folder in FileSystem.readDirectory(modsFolder))
 			{
@@ -109,18 +109,18 @@ class Mods
 			// Global mods first
 			for(mod in Mods.getGlobalMods())
 			{
-				var folder:String = Paths.mods(mod + '/' + fileToFind);
+				var folder:String = SUtil.getPath() + Paths.mods(mod + '/' + fileToFind);
 				if(FileSystem.exists(folder)) foldersToCheck.push(folder);
 			}
 
 			// Then "PsychEngine/mods/" main folder
-			var folder:String = Paths.mods(fileToFind);
-			if(FileSystem.exists(folder)) foldersToCheck.push(Paths.mods(fileToFind));
+			var folder:String = SUtil.getPath() + Paths.mods(fileToFind);
+			if(FileSystem.exists(folder)) foldersToCheck.push(SUtil.getPath() + Paths.mods(fileToFind));
 
 			// And lastly, the loaded mod's folder
 			if(Mods.currentModDirectory != null && Mods.currentModDirectory.length > 0)
 			{
-				var folder:String = Paths.mods(Mods.currentModDirectory + '/' + fileToFind);
+				var folder:String = SUtil.getPath() + Paths.mods(Mods.currentModDirectory + '/' + fileToFind);
 				if(FileSystem.exists(folder)) foldersToCheck.push(folder);
 			}
 		}
@@ -133,7 +133,7 @@ class Mods
 		#if MODS_ALLOWED
 		if(folder == null) folder = Mods.currentModDirectory;
 
-		var path = Paths.mods(folder + '/pack.json');
+		var path = SUtil.getPath() + Paths.mods(folder + '/pack.json');
 		if(FileSystem.exists(path)) {
 			try {
 				#if sys
