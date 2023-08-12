@@ -55,7 +55,7 @@ class Mods
 	{
 		var list:Array<String> = [];
 		#if MODS_ALLOWED
-		var modsFolder:String = SUtil.getPaths() + Paths.mods();
+		var modsFolder:String = SUtil.getPath() + Paths.mods();
 		if(FileSystem.exists(modsFolder)) {
 			for (folder in FileSystem.readDirectory(modsFolder))
 			{
