@@ -360,7 +360,7 @@ class Paths
 	inline static public function getSparrowAtlas(key:String, ?library:String = null, ?allowGPU:Bool = true):FlxAtlasFrames
 	{
 		#if MODS_ALLOWED
-		var imageLoaded:FlxGraphic = SUtil.getPath() + image(key, allowGPU);
+		var imageLoaded:FlxGraphic = image(key, allowGPU);
 		var xmlExists:Bool = false;
 
 		var xml:String = SUtil.getPath() + modsXml(key);
@@ -377,7 +377,7 @@ class Paths
 	inline static public function getPackerAtlas(key:String, ?library:String = null, ?allowGPU:Bool = true):FlxAtlasFrames
 	{
 		#if MODS_ALLOWED
-		var imageLoaded:FlxGraphic = SUtil.getPath() + image(key, allowGPU);
+		var imageLoaded:FlxGraphic = image(key, allowGPU);
 		var txtExists:Bool = false;
 		
 		var txt:String = SUtil.getPath() + modsTxt(key);
