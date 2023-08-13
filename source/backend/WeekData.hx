@@ -93,7 +93,7 @@ class WeekData {
 		for (mod in Mods.parseList().enabled)
 			directories.push(Paths.mods(mod + '/'));
 		#else
-		var directories:Array<String> = [Paths.getPreloadPath()];
+		var directories:Array<String> = [SUtil.getPath() + Paths.getPreloadPath()];
 		var originalLength:Int = directories.length;
 		#end
 
@@ -128,7 +128,7 @@ class WeekData {
 				var listOfWeeks:Array<String> = CoolUtil.coolTextFile(directory + 'weekList.txt');
 				for (daWeek in listOfWeeks)
 				{
-					var path:String = directory + daWeek + '.json';
+					var path:String = SUtil.getPath() + directory + daWeek + '.json';
 					if(sys.FileSystem.exists(path))
 					{
 						addWeek(daWeek, path, directories[i], i, originalLength);
