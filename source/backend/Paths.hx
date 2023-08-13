@@ -101,7 +101,7 @@ class Paths
 		}
 		#end
 		if (library != null)
-			return getLibraryPath(file, library);
+			return SUtil.getPath() + getLibraryPath(file, library);
 		if (currentLevel != null)
 		{
 			var levelPath:String = '';
@@ -114,7 +114,7 @@ class Paths
 			if (OpenFlAssets.exists(levelPath, type))
 				return levelPath;
 		}
-		return getPreloadPath(file);
+		return SUtil.getPath() + getPreloadPath(file);
 	}
 	static public function getLibraryPath(file:String, library = "preload")
 	{
@@ -162,7 +162,7 @@ class Paths
 			return file;
 		}
 		#end
-		return 'assets/videos/$key.$VIDEO_EXT';
+		return SUtil.getPath() + 'assets/videos/$key.$VIDEO_EXT';
 	}
 	static public function sound(key:String, ?library:String):Sound
 	{
@@ -273,7 +273,7 @@ class Paths
 				return File.getContent(levelPath);
 		}
 		#end
-		var path:String = getPath(key, TEXT);
+		var path:String = SUtil.getPath() + getPath(key, TEXT);
 		if(OpenFlAssets.exists(path, TEXT)) return Assets.getText(path);
 		return null;
 	}
